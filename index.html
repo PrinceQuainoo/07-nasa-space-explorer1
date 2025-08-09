@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NASA Space Explorer</title>
+  <meta name="description" content="Explore NASA's Astronomy Picture of the Day for any 9-day range." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <img src="./logo.svg" class="logo" alt="NASA logo stylized" />
+      <div>
+        <h1>NASA Space Explorer</h1>
+        <p class="tag">Browse APOD for any 9-day range.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="controls card">
+      <div class="control-row">
+        <label>
+          Start date
+          <input type="date" id="startDate" />
+        </label>
+        <label>
+          End date
+          <input type="date" id="endDate" />
+        </label>
+        <button id="fetchBtn" class="btn primary">Get Space Images</button>
+      </div>
+      <p class="hint">Tip: pick a start date; the app auto-sets an end date 8 days later (9 total days).</p>
+    </section>
+
+    <section class="fact card" id="factBox" aria-live="polite">
+      <h2 class="eyebrow">Did You Know?</h2>
+      <p id="factText"></p>
+    </section>
+
+    <section id="status" class="status"></section>
+
+    <section id="gallery" class="gallery"></section>
+  </main>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card">
+      <button id="modalClose" class="btn icon" aria-label="Close modal">✕</button>
+      <div id="modalMedia" class="modal-media"></div>
+      <div class="modal-info">
+        <h3 id="modalTitle"></h3>
+        <p class="muted"><span id="modalDate"></span></p>
+        <p id="modalExplanation"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>Data from NASA APOD • Educational use • © <span id="year"></span></small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
